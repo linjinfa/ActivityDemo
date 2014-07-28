@@ -4,23 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.MaskFilter;
 import android.os.Bundle;
-import android.support.v4.util.SparseArrayCompat;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.MaskFilterSpan;
-import android.util.DisplayMetrics;
-import android.util.FloatMath;
-import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.Button;
@@ -66,7 +59,9 @@ public class MainActivity extends Activity{
 		tx.setLayoutParams(lpParams);
 		
 		setView();
-
+System.out.println("==============第一次提交");
+System.out.println("==============第二次提交");
+System.out.println("==============第三次提交 ");
 	}
 	
 	LineView lineView;
