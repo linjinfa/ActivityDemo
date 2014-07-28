@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="首页" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="onStartSecondClick"
+        android:text="全景Activity" />
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="onSearchClick"
+        android:text="搜索Activity" />
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="onRetrofitClick"
+        android:text="retrofit请求" />
+    
+    <FrameLayout 
+        android:id="@+id/frameLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:background="@android:color/white"
+        android:visibility="gone"
+        ></FrameLayout>
+    
+    <com.linjf.demo.view.SimpleMapView
+        android:id="@+id/simpleMapView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <com.linjf.demo.view.TouchView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/m2"
+        android:scaleType="matrix"
+        android:visibility="gone"
+        />
+
+</LinearLayout>
