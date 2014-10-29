@@ -217,14 +217,12 @@ System.out.println("hhhhh================>  "+getChildCount());
 	private void addAndMeasureChild(View childView,int index) {
 		LayoutParams lpLayoutParams = childView.getLayoutParams();
 		if (lpLayoutParams == null) {
-			lpLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,
-					LayoutParams.WRAP_CONTENT);
+			lpLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		}
 		addViewInLayout(childView, index, lpLayoutParams);
 		final int itemWidth = getWidth();
 		// 位运算 | itemWidth表示添加此当前值
-		childView.measure(MeasureSpec.EXACTLY | itemWidth,
-				MeasureSpec.UNSPECIFIED);
+		childView.measure(MeasureSpec.EXACTLY | itemWidth, MeasureSpec.UNSPECIFIED);
 	}
 
 	/**

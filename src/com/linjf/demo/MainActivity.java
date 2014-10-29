@@ -3,6 +3,9 @@ package com.linjf.demo;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit.RestAdapter;
+import retrofit.RestAdapter.LogLevel;
+import retrofit.RetrofitError;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -20,10 +23,14 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.linjf.demo.util.DataDealUtil;
+import com.linjf.demo.util.HLGsonConverter;
+import com.linjf.demo.util.ITourService;
 import com.linjf.demo.util.pojo.RouteGroup;
 import com.linjf.demo.util.pojo.RouteSteps;
 import com.linjf.demo.util.pojo.Routes;
+import com.linjf.demo.util.pojo.Scenic;
 import com.linjf.demo.view.LineView;
 import com.linjf.demo.view.SimpleMapView;
 
@@ -187,30 +194,30 @@ System.out.println("======>MainActivity 销毁  ");
 //		btn.setTextSize(DensityUtil.px2sp(this, 38));
 //		btn.setTextSize(TypedValue.COMPLEX_UNIT_PX, 26);
 //System.out.println("mmmmmmmmm======>"+btn.getTextSize());
-//		new Thread(new Runnable() {
-//			@Override
-//			public void run() {
-//				try {
-//					long t1 = System.currentTimeMillis();
-//					RestAdapter restAdapter = new RestAdapter.Builder().setConverter(new HLGsonConverter(new Gson(),false)).setLogLevel(LogLevel.FULL).setEndpoint(ITourService.ROOT_URL).build();
-//					ITourService tourService = restAdapter.create(ITourService.class);
-//					List<Scenic> scenicList = tourService.getLandscapes();
-//					long t2 = System.currentTimeMillis();
-//					System.out.println(" 消耗事假====》  "+(t2-t1));
-////					System.out.println("k=aaaaa=======> "+tourService.landscapes());;
-//				} catch (RetrofitError e) {
-//					System.out.println("异常====》"+e);
-//					e.printStackTrace();
-////					System.out.println("asdasdasdassdasdasd=======>  "+e.isNetworkError()+"  "+e.getMessage()+"  "+e.getResponse().getStatus());
-////					try {
-////						String ss = InputStreamUtil.InputStreamTOStringUTF8(e.getResponse().getBody().in());
-////						System.out.println("kkkkk======>  "+ss);
-////					} catch (IOException e1) {
-////						e1.printStackTrace();
-////					}
-//				}
-//			}
-//		}).start();
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					long t1 = System.currentTimeMillis();
+					RestAdapter restAdapter = new RestAdapter.Builder().setConverter(new HLGsonConverter(new Gson(),false)).setLogLevel(LogLevel.FULL).setEndpoint(ITourService.ROOT_URL).build();
+					ITourService tourService = restAdapter.create(ITourService.class);
+					List<Scenic> scenicList = tourService.getLandscapes();
+					long t2 = System.currentTimeMillis();
+					System.out.println(" 消耗事假====》  "+(t2-t1)+"  "+scenicList);
+//					System.out.println("k=aaaaa=======> "+tourService.landscapes());;
+				} catch (RetrofitError e) {
+					System.out.println("异常====》"+e);
+					e.printStackTrace();
+//					System.out.println("asdasdasdassdasdasd=======>  "+e.isNetworkError()+"  "+e.getMessage()+"  "+e.getResponse().getStatus());
+//					try {
+//						String ss = InputStreamUtil.InputStreamTOStringUTF8(e.getResponse().getBody().in());
+//						System.out.println("kkkkk======>  "+ss);
+//					} catch (IOException e1) {
+//						e1.printStackTrace();
+//					}
+				}
+			}
+		}).start();
 		
 //		new Thread(new ResponseTask(ServerInfo.LANDSCAPES+"dd",new TypeToken<List<Scenic>>(){}.getType())).start();
 	}

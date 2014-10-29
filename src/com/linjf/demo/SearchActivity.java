@@ -3,11 +3,9 @@ package com.linjf.demo;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.linjf.demo.view.ListView3D;
-import com.linjf.demo.view.SearchWindow;
 import com.linjf.demo.view.adapter.ListView3DAdapter;
 
 /** 
@@ -36,7 +34,7 @@ public class SearchActivity extends Activity{
 	}
 
 	public void searchClick(View view){
-		new SearchWindow(this).show();
+		
 	}
 
 }

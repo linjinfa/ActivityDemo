@@ -182,22 +182,6 @@ public class SimpleMapView extends ViewGroup implements SensorEventListener{
 		int widthSize = MeasureSpec.getSize(pWidthMeasureSpec);// 得到尺寸
 
 		switch (widthMode) {
-		/**
-		 * mode共有三种情况，取值分别为MeasureSpec.UNSPECIFIED, MeasureSpec.EXACTLY,
-		 * MeasureSpec.AT_MOST。
-		 * 
-		 * MeasureSpec.EXACTLY是精确尺寸，
-		 * 当我们将控件的layout_width或layout_height指定为具体数值时如andorid
-		 * :layout_width="50dip"，或者为FILL_PARENT是，都是控件大小已经确定的情况，都是精确尺寸。
-		 * 
-		 * MeasureSpec.AT_MOST是最大尺寸，
-		 * 当控件的layout_width或layout_height指定为WRAP_CONTENT时
-		 * ，控件大小一般随着控件的子空间或内容进行变化，此时控件尺寸只要不超过父控件允许的最大尺寸即可
-		 * 。因此，此时的mode是AT_MOST，size给出了父控件允许的最大尺寸。
-		 * 
-		 * MeasureSpec.UNSPECIFIED是未指定尺寸，这种情况不多，一般都是父控件是AdapterView，
-		 * 通过measure方法传入的模式。
-		 */
 		case MeasureSpec.AT_MOST:
 		case MeasureSpec.EXACTLY:
 			result = widthSize;
